@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  webp:
+    build:
+      context: ./app
+    command: gunicorn app.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+      - static_volume:/usr/src/app/staticfiles
+    #  - vue_volume:/usr/src/app/frontend/dist
+    ports:
+      - 8000:8000
+    #expose:
+    #  - 8000
+    env_file:
+      - ./.env.prod
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+    #  - vue_volume:/usr/src/app/frontend/dist
+    ports:
+      - 80:80
+    depends_on:
+      - webp
+
+volumes:
+  static_volume:
+  # vue_volume:
