@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GC: Main page</title>
+    <style>
+        body {
+            font: 30px arial;
+            color: #222222;
+            padding: 20px;
+            text-align: center;
+        }
+        hr {
+            margin: 20px 0;
+	        padding: 0;
+	        height: 0;
+	        border: none;
+	        border-top: 2px dotted #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>General Contractor</h1>
+    <h2>1. Upload the Prequal Form template</h2>
+    <hr />
+    <form>
+        <input
+            type="file"
+            onChange="enable_submit()"
+        />
+        <br /><br />
+        <input
+            type="submit"
+            id="submit"
+            value="Next"
+            active="false"
+            style="padding: 10px 20px 8px 20px; color: white; background-color: #ccc; border:0; border-radius: 10px"
+            disabled
+        />
+    </form>
+    <hr />
+    <p>
+        2. Prequal Form template preview
+    </p>
+    <p>
+        3. Sending the invitations
+    </p>
+    <p>
+        4. Checking the result
+    </p>
+</body>
+<script>
+    function enable_submit() {
+        console.log(1)
+        let el = document.getElementById('submit')
+        console.log(el)
+        el.disabled=false
+        el.style['background-color']='#2480EB'
+    }
+</script>
+</html>
