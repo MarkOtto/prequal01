@@ -15,13 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls    import path
-from preq_form.views import Simple_Template_View
 from django.views.generic import TemplateView
+from preq_form.views import View_GC_Upload_PFT, View_Sub_PF, View_Sub_Send
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name="index.html")),  # главная страница
-    path('gc/index',  TemplateView.as_view(template_name="gc_index.html")),   # главная страница
-    path('gc/upload', TemplateView.as_view(template_name="gc_upload.html")),  # главная страница
+    # Главные страницы
+    path('',          TemplateView.as_view(template_name="index.html")),
+    path('gc/index',  TemplateView.as_view(template_name="gc_index.html")),   # GC
+    path('sub/index', TemplateView.as_view(template_name="sub_index.html")),  # Sub
+    # GC
+    path('gc/upload', View_GC_Upload_PFT.as_view()),  # адрес загрузки PFT + страница отчета
+    # Sub
+    path('sub/pf',      View_Sub_PF.as_view()),  # адрес загрузки PFT + страница отчета
+    path('sub/pf_send', View_Sub_Send.as_view()),  # адрес загрузки PFT + страница отчета
+
+
+    #path('sub/bundle.js', View_Sub_PF.as_view()),  # адрес загрузки PFT + страница отчета
+
+    #path('gc/upload', TemplateView.as_view(template_name="gc_upload.html")),  # страница загрузки PFT
+    #path('gc/upload_pft', Upload_PFT.as_view()),  # адрес загрузки PFT + страница отчета
     #path('', Simple_Template_View.as_view()),  # главная страница
 ]

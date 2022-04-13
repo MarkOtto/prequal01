@@ -1,0 +1,315 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+    <title>Prequal Form</title>
+    <style>
+        * {padding:0; margin: 0}
+        a {padding: 4px;}
+        .bb {
+            padding: 10px 20px 8px 20px;
+            color: white;
+            background-color: #2480EB;
+            border: 0;
+            border-radius: 10px
+        }
+        body {
+            font: 14px arial; color: #222222; padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" style="display: none">{{template}}</div>
+<div id="div1--" style="display: none">
+[
+    {
+        "Header": "Company information",
+        "Tabs": [
+            {
+                "header": "Basic information",
+                "Questions": [
+                    {
+                        "TYPE":"INPUT",
+                        "label":"Company name",
+                        "options": ["text", 1, "for ex. United Pyramid Builders ltd."],
+                        "id":"field002"
+                    },
+                    {
+                        "TYPE":"SELECT",
+                        "label":"Business Type",
+                        "options": [
+                            ["a" , "Business Type A"],
+                            ["b" , "Business Type B"],
+                            ["c1", "Business Type C1"],
+                            ["c2", "Business Type C2"]
+                        ],
+                        "id":"field003"
+                    },
+                    {
+                        "TYPE":"INPUT",
+                        "label":"Company website",
+                        "options": ["text", 1, "for ex. www.google.com"],
+                        "id":"field004"
+                    },
+                    {"TYPE":"LABEL", "label":"Common info"},
+                    {
+                        "TYPE":"INPUT",
+                        "label":"Founding Year",
+                        "options": ["number", 1, "for ex. 2020"],
+                        "id":"field005"
+                    },
+                    {
+                        "TYPE":"INPUT",
+                        "label":"Federal Tax ID/EIN",
+                        "options": ["text", 1, "for ex. 123456789"],
+                        "id":"field006"
+                    },
+                    {
+                        "TYPE":"INPUT",
+                        "label":"Founded in",
+                        "options": ["text", 1, "for ex. Texas"],
+                        "id":"field007"
+                    },
+                    {
+                        "TYPE":"INPUT",
+                        "label":"Total Number of Employees",
+                        "options": ["number", 1, "for ex. 10"],
+                        "id":"field008"
+                    },
+                    {
+                        "TYPE":"INPUT",
+                        "label":"Inhouse Trade People",
+                        "options": ["number", 1, "for ex. 10"],
+                        "id":"field009"
+                    },
+                    {"TYPE":"LABEL", "label":"Additional questions"},
+                    {
+                        "TYPE":"RADIO",
+                        "label":"Has your company or shareholders operated under a different name?",
+                        "options": [
+                            ["Yes", true],
+                            ["No", false]
+                        ],
+                        "id":"field010"
+                    },
+                    {
+                        "TYPE":"RADIO",
+                        "label":"Does your company have a parent, subsidiary or related company?",
+                        "options": [
+                            ["Yes", true],
+                            ["No", false]
+                        ],
+                        "id":"field011"
+                    },
+                    {
+                        "TYPE":"RADIO",
+                        "label":"Does your company have any construction licenses?",
+                        "options": [
+                            ["Yes", true],
+                            ["No", false]
+                        ],
+                        "id":"field012"
+                    },
+                    {
+                        "TYPE":"RADIO",
+                        "label":"Has your company changed it's construction license number in the last 5 years?",
+                        "options": [
+                            ["Yes", true],
+                            ["No", false]
+                        ],
+                        "id":"field013"
+                    }
+                ]
+            },
+            {
+                "header": "Address",
+                "Questions": []
+            },
+            {
+                "header": "Ownership/Management",
+                "Questions": []
+            },
+            {
+                "header": "General QA",
+                "Questions": []
+            },
+            {
+                "header": "Licensing",
+                "Questions": [
+                    {
+                        "TYPE":"PANEL",
+                        "label":"Licenses",
+                        "id":"panel1",
+                        "max": 3,
+                        "Questions": [
+                        {
+                            "TYPE":"SELECT",
+                            "label":"To add licensing information select your state",
+                            "options": [
+                                ["AK", "AK • Alaska"],
+                                ["AL", "AL • Alabama"],
+                                ["AR", "AR • Arkansas"],
+                                ["AZ", "AZ • Arizona"],
+                                ["CA", "CA • California"],
+                                ["CO", "CO • Colorado"],
+                                ["CT", "CT • Connecticut"],
+                                ["DE", "DE • Delaware"],
+                                ["FL", "FL • Florida"],
+                                ["GA", "GA • Georgia"],
+                                ["HI", "HI • Hawaii"],
+                                ["IA", "IA • Iowa"],
+                                ["ID", "ID • Idaho"],
+                                ["IL", "IL • Illinois"],
+                                ["IN", "IN • Indiana"],
+                                ["KS", "KS • Kansas"],
+                                ["KY", "KY • Kentucky"],
+                                ["LA", "LA • Louisiana"],
+                                ["MA", "MA • Massachusetts"],
+                                ["MD", "MD • Maryland"],
+                                ["ME", "ME • Maine"],
+                                ["MI", "MI • Michigan"],
+                                ["MN", "MN • Minnesota"],
+                                ["MO", "MO • Missouri"],
+                                ["MS", "MS • Mississippi"],
+                                ["MT", "MT • Montana"],
+                                ["NC", "NC • North Carolina"],
+                                ["ND", "ND • North Dakota"],
+                                ["NE", "NE • Nebraska"],
+                                ["NH", "NH • New Hampshire"],
+                                ["NJ", "NJ • New Jerse"],
+                                ["NM", "NM • New Mexico"],
+                                ["NV", "NV • Nevada"],
+                                ["NY", "NY • New York"],
+                                ["OH", "OH • Ohio"],
+                                ["OK", "OK • Oklahoma"],
+                                ["OR", "OR • Oregon"],
+                                ["PA", "PA • Pennsylvania"],
+                                ["RI", "RI • Rhode Island"],
+                                ["SC", "SC • South Carolina"],
+                                ["SD", "SD • South Dakota"],
+                                ["TN", "TN • Tennessee"],
+                                ["TX", "TX • Texas"],
+                                ["UT", "UT • Utah"],
+                                ["VA", "VA • Virginia"],
+                                ["VT", "VT • Vermont"],
+                                ["WA", "WA • Washington"],
+                                ["WI", "WI • Wisconsin"],
+                                ["WV", "WV • West Virginia"],
+                                ["WY", "WY • Wyoming"]
+                            ],
+                            "id":"field101"
+                        },
+                        {
+                            "TYPE":"INPUT",
+                            "label":"Authority",
+                            "options": ["text", 1, "for ex. what?"],
+                            "id":"field102"
+                        },
+                        {
+                            "TYPE":"INPUT",
+                            "label":"License number",
+                            "options": ["text", 1, "for ex. 1234567890"],
+                            "id":"field103"
+                        },
+                        {
+                            "TYPE":"INPUT",
+                            "label":"Sales tax regulation number",
+                            "options": ["text", 1, "for ex. 1234567890"],
+                            "id":"field104"
+                        }
+                        ]
+                    }
+
+
+                ]
+            },
+            {
+                "header": "Legal",
+                "Questions": []
+            },
+            {
+                "header": "Subs",
+                "Questions": []
+            }
+        ]
+    },
+    {
+        "Header": "Projects",
+        "Tabs": [
+            {
+                "header": "Current status",
+                "Questions": []
+            },
+            {
+                "header": "Project history",
+                "Questions": []
+            },
+            {
+                "header": "References",
+                "Questions": []
+            }
+        ]
+    },
+    {
+        "Header": "Health & Safety",
+        "Tabs": [
+            {
+                "header": "OSHA/Employees",
+                "Questions": []
+            },
+            {
+                "header": "Health",
+                "Questions": []
+            }
+        ]
+    },
+    {
+        "Header": "Insurance",
+        "Tabs": [
+            {
+                "header": "Insurance",
+                "Questions": []
+            },
+            {
+                "header": "Bonding",
+                "Questions": []
+            }
+        ]
+    },
+    {
+        "Header": "Finances",
+        "Tabs": [
+            {
+                "header": "Banking",
+                "Questions": []
+            },
+            {
+                "header": "Financials",
+                "Questions": []
+            }
+        ]
+    }
+]
+</div>
+<div id="divx" style="display: none">{{data}}</div>
+<div id="divx----" style="display: none">
+{
+    "field002":"My building company",
+    "field003":"c2",
+    "field004":"my.com",
+    "field013":true,
+    "panel1":0,
+    "field101|0":"MA",
+    "field101|1":"NY"
+}
+</div>
+
+<div id="app"></div>
+<script src="{% static 'bundle.js' %}"></script>
+
+
+</body>
+</html>
+

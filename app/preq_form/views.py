@@ -6,22 +6,96 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseForbidde
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from django.core.files.storage import FileSystemStorage
 
-from django.conf import settings
+from preq_form.models import Model_PFT, Model_PF
 
-# GC главная страница
-class Simple_Template_View(View):
+
+# GC загрузка шаблона формы из файла в базу
+class View_GC_Upload_PFT(View):
+    # форма загрузки (начальная, до загрузки)
+    def get(self,request):
+        return render(
+            request,
+            'gc_upload.html',
+            {'result':'w', 'color':'red'}
+        )
+
+    def post(self, request):
+        if request.FILES['pft']:  # если файл передан
+            file = request.FILES['pft']
+            comment = request.POST.get('comment')
+            content = file.read().decode("utf-8")
+            try:
+                a = json.loads(content)
+            except:
+                return render(
+                    request,
+                    'gc_upload.html',
+                    {'result': 'Error parsing JSON file!', 'color':'red'}
+                )
+
+                #return HttpResponse("Ошибка при парсинге фвйла")
+            pft = Model_PFT.objects.create(
+                content=content,
+                comment=comment,
+            )
+            #return HttpResponse("Файл загружен")
+            return render(
+                request,
+                'gc_upload.html',
+                {'result': 'The Prequal Form Template is successfully loaded!', 'color':'#2480EB'}
+            )
+        return render(
+            request,
+            'gc_upload.html',
+            {'result':'The Prequal Form Template wasn\'t loaded', 'color':'red'}
+        )
+
+class View_Sub_PF(View):
+
+    # GET - отображение формы
     def get(self, request):
-        return render(request, 'index.html', {})
+        pf_str = Model_PF.objects.get(id=1)
+        pf_dat = pf_str.json
+        pft_str = Model_PFT.objects.get(id=21)
+        pft_dat = pft_str.content
+        return render(
+            request,
+            'sub_pf.html',
+            {
+                'data': pf_dat,
+                'template': pft_dat,
+            }
+        )
+
+class View_Sub_Send(View):
+
+    # GET - обработка формы
+    def get(self, request):
+        params = request.GET
+        pf_data = json.dumps(params)
+        pf = Model_PF.objects.get(id=1)
+        pf.json = pf_data
+        pf.save()
+
+        return HttpResponse('OK')
+
+        return render(
+            request,
+            'sub_pf.html',
+            {}
+        )
+
+""" СОХРАНЕНИЕ ФАЙЛА ИЗ ПОСТ
+    file = request.FILES['pft']
+    fs = FileSystemStorage()
+    filename = fs.save(myfile.name, myfile)
+    uploaded_file_url = fs.url(filename)
+"""
+
 
 """
-from backend.classes.class_doc import Doc
-from backend.classes.class_sms import SMS
-from backend.utils.utils_request import parse_parameters
-from backend.models import Model_API_Client, Model_Doc
-
-
-
 
 # ФЛ: Скачивание файла договора
 class Download_View(View):

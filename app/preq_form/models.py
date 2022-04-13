@@ -1,6 +1,25 @@
 from django.db import models
 from datetime import datetime
 
+
+class Model_PFT(models.Model):   # шаблоны Prequal Form
+    created = models.DateTimeField(default=datetime.now)  # ЖЦ: дата и время создания заявки
+    content = models.TextField()
+    comment = models.CharField(max_length=32)
+    # active - only one!
+
+    def __str__(self):
+        return str(self.id) + ' • • • ' + self.created.strftime('%Y-%m-%d %H:%M') + ' •  •  •  ' + self.comment
+
+class Model_PF(models.Model):   # заполненные Prequal Form
+    # ссылка на GC
+    # ссылка на Sub
+    created = models.DateTimeField(default=datetime.now)  # ЖЦ: дата и время создания заявки
+    #pft = models.ForeignKey(to=Model_PFT, verbose_name='Template', db_index=True, on_delete=models.CASCADE,)
+    json = models.TextField()
+
+
+
 """
 class Model_API_Client(models.Model):  # Учетная запись клиента
     key   = models.CharField(                         # API-ключ клиента

@@ -1,0 +1,262 @@
+[
+    {
+        "Header": "Company information",
+        "Tabs":
+            {
+                "Header": "Basic information",
+                "Questions": [
+                    {
+                        "label":"Company logo|.jpg or .png|max 10MB",
+                        "type":"image",
+                        "id":"field001"
+                    },
+                    {
+                        "label":"Company name",
+                        "type":"input",
+                        "options": ["text", 1, "for ex. United Pyramid Builders ltd."],
+                        "id":"field002"
+                    },
+                    {
+                        "label":"Business Type",
+                        "type":"select",
+                        "options": [
+                            ["a" , "Business Type A"],
+                            ["b" , "Business Type B"],
+                            ["c1", "Business Type C1"],
+                            ["c2", "Business Type C2"]
+                        ],
+                        "id":"field003"
+                    },
+                    {
+                        "label":"Company website",
+                        "type":"input",
+                        "options": ["text", 1, "for ex. www.google.com"],
+                        "id":"field004"
+                    },
+                    {
+                        "label":"Founding Year",
+                        "type":"input",
+                        "options": ["number", 1, "for ex. 2020"],
+                        "id":"field005"
+                    },
+                    {
+                        "label":"Federal Tax ID/EIN",
+                        "type":"input",
+                        "options": ["text", 1, "for ex. 123456789"],
+                        "id":"field006"
+                    },
+                    {
+                        "label":"Founded in",
+                        "type":"input",
+                        "options": ["text", 1, "for ex. Texas"],
+                        "id":"field007"
+                    },
+                    {
+                        "label":"Total Number of Employees",
+                        "type":"input",
+                        "options": ["number", 1, "for ex. 10"],
+                        "id":"field008"
+                    },
+                    {
+                        "label":"Inhouse Trade People",
+                        "type":"input",
+                        "options": ["number", 1, "for ex. 10"],
+                        "id":"field009"
+                    },
+                    {
+                        "type":"radio",
+                        "label":"Has your company or shareholders operated under a different name?",
+                        "options": [
+                            ["Yes", true],
+                            ["No", false]
+                        ],
+                        "id":"field010"
+                    },
+                    {
+                        "type":"radio",
+                        "label":"Does your company have a parent, subsidiary or related company?",
+                        "options": [
+                            ["Yes", true],
+                            ["No", false]
+                        ],
+                        "id":"field011"
+                    },
+                    {
+                        "type":"radio",
+                        "label":"Does your company have any construction licenses?",
+                        "options": [
+                            ["Yes", true],
+                            ["No", false]
+                        ],
+                        "id":"field012"
+                    },
+                    {
+                        "type":"radio",
+                        "label":"Has your company changed it's construction license number in the last 5 years?",
+                        "options": [
+                            ["Yes", true],
+                            ["No", false]
+                        ],
+                        "id":"field013"
+                    }
+                ]
+            },
+            {
+                "Header": "Address",
+                "Questions": []
+            },
+            {
+                "Header": "Ownership/Management",
+                "Questions": []
+            },
+            {
+                "Header": "General QA",
+                "Questions": []
+            },
+            {
+                "Header": "Licensing",
+                "Questions": [
+                    {
+                        "type":"select",
+                        "label":"To add licensing information select your state",
+                        "options": [
+                            ["AK", "AK • Alaska"],
+                            ["AL", "AL • Alabama"],
+                            ["AR", "AR • Arkansas"],
+                            ["AZ", "AZ • Arizona"],
+                            ["CA", "CA • California"],
+                            ["CO", "CO • Colorado"],
+                            ["CT", "CT • Connecticut"],
+                            ["DE", "DE • Delaware"],
+                            ["FL", "FL • Florida"],
+                            ["GA", "GA • Georgia"],
+                            ["HI", "HI • Hawaii"],
+                            ["IA", "IA • Iowa"],
+                            ["ID", "ID • Idaho"],
+                            ["IL", "IL • Illinois"],
+                            ["IN", "IN • Indiana"],
+                            ["KS", "KS • Kansas"],
+                            ["KY", "KY • Kentucky"],
+                            ["LA", "LA • Louisiana"],
+                            ["MA", "MA • Massachusetts"],
+                            ["MD", "MD • Maryland"],
+                            ["ME", "ME • Maine"],
+                            ["MI", "MI • Michigan"],
+                            ["MN", "MN • Minnesota"],
+                            ["MO", "MO • Missouri"],
+                            ["MS", "MS • Mississippi"],
+                            ["MT", "MT • Montana"],
+                            ["NC", "NC • North Carolina"],
+                            ["ND", "ND • North Dakota"],
+                            ["NE", "NE • Nebraska"],
+                            ["NH", "NH • New Hampshire"],
+                            ["NJ", "NJ • New Jerse"],
+                            ["NM", "NM • New Mexico"],
+                            ["NV", "NV • Nevada"],
+                            ["NY", "NY • New York"],
+                            ["OH", "OH • Ohio"],
+                            ["OK", "OK • Oklahoma"],
+                            ["OR", "OR • Oregon"],
+                            ["PA", "PA • Pennsylvania"],
+                            ["RI", "RI • Rhode Island"],
+                            ["SC", "SC • South Carolina"],
+                            ["SD", "SD • South Dakota"],
+                            ["TN", "TN • Tennessee"],
+                            ["TX", "TX • Texas"],
+                            ["UT", "UT • Utah"],
+                            ["VA", "VA • Virginia"],
+                            ["VT", "VT • Vermont"],
+                            ["WA", "WA • Washington"],
+                            ["WI", "WI • Wisconsin"],
+                            ["WV", "WV • West Virginia"],
+                            ["WY", "WY • Wyoming"]
+                        ],
+                        "id":"field101"
+                    },
+                    {
+                        "label":"Authority",
+                        "type":"input",
+                        "options": ["text", 1, "for ex. what?"],
+                        "id":"field102"
+                    },
+                    {
+                        "label":"License number",
+                        "type":"input",
+                        "options": ["text", 1, "for ex. 1234567890"],
+                        "id":"field103"
+                    },
+                    {
+                        "label":"Sales tax regulation number",
+                        "type":"input",
+                        "options": ["text", 1, "for ex. 1234567890"],
+                        "id":"field104"
+                    }
+                ]
+            },
+            {
+                "Header": "Legal",
+                "Questions": []
+            },
+            {
+                "Header": "Subs",
+                "Questions": []
+            }
+        ]
+    },
+    {
+        "Header": "Projects",
+        "Tabs": [
+            {
+                "Header": "Current status",
+                "Questions": []
+            },
+            {
+                "Header": "Project history",
+                "Questions": []
+            },
+            {
+                "Header": "References",
+                "Questions": []
+            }
+        ]
+    },
+    {
+        "Header": "Health & Safety",
+        "Tabs": [
+            {
+                "Header": "OSHA/Employees",
+                "Questions": []
+            },
+            {
+                "Header": "Health",
+                "Questions": []
+            }
+        ]
+    },
+    {
+        "Header": "Insurance",
+        "Tabs": [
+            {
+                "Header": "Insurance",
+                "Questions": []
+            },
+            {
+                "Header": "Bonding",
+                "Questions": []
+            }
+        ]
+    },
+    {
+        "Header": "Finances",
+        "Tabs": [
+            {
+                "Header": "Banking",
+                "Questions": []
+            },
+            {
+                "Header": "Financials",
+                "Questions": []
+            }
+        ]
+    }
+]

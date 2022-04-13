@@ -1,8 +1,27 @@
 from django.contrib import admin
 from datetime       import datetime
 
+
+from preq_form.models import Model_PFT, Model_PF
+
+@admin.register(Model_PFT)
+class Model_Admin_PFT(admin.ModelAdmin):
+    date_hierarchy = 'created'  # виджет даты в админке
+    list_display = ('id', 'created', 'comment', 'content', )
+    search_fields = ('comment',)
+
+    fields = ('comment', 'content', ) # поля на страницах NEW + EDIT
+
+
+@admin.register(Model_PF)
+class Model_Admin_PF(admin.ModelAdmin):
+    date_hierarchy = 'created'  # виджет даты в админке
+    list_display = ('id', 'json', )
+    search_fields = ('json',)
+    #fields = ('comment', 'content', ) # поля на страницах NEW + EDIT
+
+
 """
-from backend.models import Model_API_Client, Model_Doc
 
 # Register your models here.
 
